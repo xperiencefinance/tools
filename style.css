@@ -1,0 +1,351 @@
+/* ============================================
+   XPERIENCE FINANCE — Credibility Speech
+   style.css
+   ============================================ */
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gold:        #C9A84C;
+  --gold-light:  #E8C97A;
+  --gold-faint:  rgba(201, 168, 76, 0.08);
+  --gold-border: rgba(201, 168, 76, 0.2);
+  --dark:        #0D0D0D;
+  --charcoal:    #1A1A1A;
+  --mid:         #2C2C2C;
+  --cream:       #F5F0E8;
+  --text:        #E8E0D0;
+  --muted:       #888888;
+  --font-serif:  'Playfair Display', Georgia, serif;
+  --font-sans:   'DM Sans', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--dark);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Cover Section --- */
+.cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 30px;
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(42, 31, 0, 0.9) 0%, var(--dark) 70%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grid texture */
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 39px,
+    rgba(201, 168, 76, 0.04) 39px,
+    rgba(201, 168, 76, 0.04) 40px
+  );
+  pointer-events: none;
+}
+
+/* Glow blob */
+.cover::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.cover-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cover-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  opacity: 0.85;
+}
+
+.cover h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 20px;
+}
+
+.cover h1 em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.gold-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 28px auto;
+}
+
+.cover-sub {
+  font-size: 0.95rem;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  margin-bottom: 48px;
+}
+
+/* Scroll CTA */
+.scroll-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold-border);
+  padding: 12px 24px;
+  border-radius: 40px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.scroll-cta:hover,
+.scroll-cta:focus-visible {
+  background: var(--gold-faint);
+  color: var(--gold-light);
+  outline: none;
+}
+
+/* --- Speech Body --- */
+.speech-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 90px 30px 120px;
+}
+
+/* --- Section --- */
+.section {
+  margin-bottom: 0;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section label */
+.section-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-border);
+}
+
+/* Body copy */
+.speech-text {
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  color: var(--text);
+  line-height: 1.95;
+}
+
+.speech-text p {
+  margin-bottom: 22px;
+}
+
+.speech-text p:last-child {
+  margin-bottom: 0;
+}
+
+.speech-text strong {
+  color: var(--cream);
+  font-weight: 500;
+}
+
+.speech-text em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid var(--gold);
+  padding: 18px 28px;
+  margin: 36px 0;
+  background: var(--gold-faint);
+  border-radius: 0 8px 8px 0;
+}
+
+.pull-quote p {
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  font-style: italic;
+  color: var(--gold-light);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Bold standout line */
+.bold-line {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.45;
+  margin: 30px 0 0;
+}
+
+/* Closing box */
+.closing-box {
+  background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03));
+  border: 1px solid var(--gold-border);
+  border-radius: 12px;
+  padding: 42px 38px;
+  margin-top: 30px;
+}
+
+.closing-box p {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.closing-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Divider */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold-border);
+  margin: 64px auto;
+}
+
+/* --- Footer --- */
+.byline {
+  text-align: center;
+  margin-top: 80px;
+  padding-top: 44px;
+  border-top: 1px solid var(--gold-border);
+}
+
+.byline-name {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.byline small {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.footer-links a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--gold-light);
+}
+
+/* --- Responsive --- */
+@media (max-width: 640px) {
+  .speech-body {
+    padding: 60px 22px 80px;
+  }
+
+  .pull-quote {
+    padding: 14px 20px;
+  }
+
+  .closing-box {
+    padding: 28px 22px;
+  }
+
+  .cover h1 {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
